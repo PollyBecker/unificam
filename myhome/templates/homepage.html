@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%}
+Unificam
+{% endblock %}
+{% block content %}
+
+   <main class="conteudo" role="main">
+      <section class="secaoDestaque" style="background-image:{%static 'bg-intro.png' %}">
+        <h1 class="secaoDestaque-titulo" id="conteudoPrincipal">
+          Unificam
+        </h1>
+        <h2 class="secaoDestaque-texto">
+          Nosso programa consiste em possibilitar esforços comunitários organizados em torno de um desenvolvimento social, que garanta a cada indivíduo um padrão de vida adequado para a manutenção da saúde.</h2>
+
+        <button class="secaoDestaque-cta btnPadrao">
+          Nossos Programas
+        </button>
+      </section>
+
+      <section class="secaoDiferenciais">
+        <div class="container">
+          <ul class="diferenciais">
+            <li class="diferenciais-diferencial">
+              <img src="{% static 'msg.png' %}" >
+              <p class="diferenciais-diferencial-texto">
+                Entre em contato.
+              </p>
+            </li>
+            <li class="diferenciais-diferencial ">
+              <img src="{% static 'coin.png' %}" >
+              <p class="diferenciais-diferencial-texto">
+                Doe e faça a diferença.
+              </p>
+            </li>
+            <li class="diferenciais-diferencial">
+              <img src="{% static 'heart.png' %}" >
+              <p class="diferenciais-diferencial-texto">
+                Missão, visão e valores.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section> <!--fim .secaoDiferenciais-->
+
+      <section class="secaoSobre clearfix">
+        <div class="container">
+          <img src="{% static 'saude.jpeg' %}" class="secaoSobre-imgDestaque" alt>
+          <h2 class="secaoSobre-titulo tituloPadrao">
+            SOBRE
+          </h2>
+          <p class="secaoSobre-texto">
+            Lorem Ipsum is simply dummy text of the printing and typesetting!
+          </p>
+          <p class="secaoSobre-texto">
+            industry. Lorem Ipsum has been the industry's standard dummy of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+          </p>
+          <p class="secaoSobre-texto">
+            <b>
+              text ever since the 1500s, when an unknown printer took a galley.
+            </b>
+          </p>
+        </div>
+      </section> <!--fim .secaoSobre-->
+
+      <section class="secaoBlog container">
+        <h2 class="secaoBlog-titulo tituloPadrao">
+          BLOG
+        </h2>
+
+        <ul class="listaDeArtigos">
+        {% for lista in lista_blog_alta %}
+          <li id="new{{ forloop.counter }}" class="listaDeArtigos-item">
+            <article class="listaDeArtigos-artigo">
+              <img src="{{ lista.thumb.url }}" class="listaDeArtigos-artigo-img" alt="Teclado da Apple e um celular Android">
+              <h2 class="listaDeArtigos-artigo-titulo">
+                {{ lista.tilulo }}
+              </h2>
+              <p>
+                {{ lista.texto|slice:'70' }}...
+                <a href="{% url 'myhome:detalhesblog' lista.pk %}" class="listaDeArtigos-artigo-link">
+                  Continuar lendo o post {{ forloop.counter }}
+                </a>
+              </p>
+            </article>
+          </li>
+        {% endfor %}
+        </ul>
+
+        <nav>
+          <ul class="listaDeArtigos-slider">
+            <li>
+              <a href="#new1" data-sliderItem="0" class="listaDeArtigos-slider-item listaDeArtigos-slider-item--ativo">
+                Notícia 1
+              </a>
+            </li>
+            <li>
+              <a href="#new2" data-sliderItem="1" class="listaDeArtigos-slider-item">
+                Notícia 2
+              </a>
+            </li>
+            <li>
+              <a href="#new3" data-sliderItem="2" class="listaDeArtigos-slider-item">
+                Notícia 3
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </section> <!--fim .secaoBlog-->
+      <section class="secaoCitacao" >
+        <h4 class="secaoCitacao-titulo" id="citacao">
+            "A caridade é o único tesouro que se aumenta
+            ao dividi-lo."
+        </h4>
+      </section>
+     <section class="secaoInstitucional">
+        <div class="container">
+          <h2 class="tituloPadrao">
+            INSTITUCIONAL
+          </h2>
+
+          <div class="secaoInstitucional-coluna">
+            <p>
+              Oi, tudo bem? Faça seu cadastro e acesse nossas
+              oficinas, informativos e mais!
+            </p>
+            <address class="secaoInstitucional-endereco">
+              faça seu cadastro e conheça seus direitos
+            </address>
+            <button class="secaoDestaque-cta btnPadrao">
+          teste
+        </button>
+          </div>
+
+          <video src="{% static 'uni-video.mp4' %}" class="secaoInstitucional-video" controls>
+            </video>
+        </div>
+      </section> <!--fim .secaoInstitucional-->
+        </div> <!--fim .container da .secaoContato-->
+
+      </section> <!--fim .secaoContato-->
+
+    </main>
+<script>
+var btns = document.querySelectorAll('.listaDeArtigos-slider-item');
+
+// Percorre todos os botoes controladores
+btns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+
+
+    // Remove classe 'ativo' dos outros botoes
+    btns.forEach(function(btnRemoveClass) {
+      btnRemoveClass.classList.remove('listaDeArtigos-slider-item--ativo')
+    })
+
+    this.classList.add('listaDeArtigos-slider-item--ativo')
+  })
+})
+// Variáveis
+var btnAbreDialog = document.querySelector('#abreDialog');
+var dialog = document.querySelector('.dialogNewsletter');
+var dialogBody = document.querySelector('.dialogNewsletter-body');
+var dialogOverlay = document.querySelector('.dialogNewsletter-overlay');
+
+
+// Quando abrir a dialog...
+btnAbreDialog.addEventListener('click', function() {
+  dialog.classList.add('dialogNewsletter--aberto');
+});
+
+function fechandoDialog() {
+  document.activeElement.blur();
+  dialog.classList.remove('dialogNewsletter--aberto');
+}
+
+// Listeners
+document.querySelector('.dialogNewsletter-fechar').addEventListener('click', fechandoDialog);
+
+	var beamer_config = {
+		product_id : 'dMXtbgUC42672'
+		//DO NOT CHANGE: This is your product code on Beamer
+	};
+</script>
+<script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>
+    {% endblock %}

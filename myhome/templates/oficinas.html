@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%}
+{{object.titulo}}
+{% endblock %}
+
+{% block content %}
+    <section class="h-screen relative bg-no-repeat pb-8 pl-6 flex items-end bg-cover" style="background-image: url('{{ video_destaque.thumb.url }}');">
+        <div>
+            <h2 class="drop-shadow-2xl text-6xl font-semibold text-white my-4">
+                {{video_destaque.tilulo}}
+            </h2>
+            <p class=" w-11/12 md:w-5/12 font-medium text-white my-4">
+                {{video_destaque.descricao|slice:100}}...
+            </p>
+            <div class="flex my-4">
+                <a href="#>
+                    <button class="flex items-center bg-white py-2 px-5 rounded-md" style='color:black;'>
+                        <ion-icon name="play" class="text-2xl"></ion-icon>
+                        <span class="ml-3 font-medium " >
+                            Play
+                        </span>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        </section>
+        <div class="container">
+
+
+            <small>
+                Não tem uma conta ainda? <p><a href="{% url 'myhome:criarconta' %}">Clique aqui para criar uma conta</a></p>
+            </small>
+        </div>
+    </header>
+{% endblock%}

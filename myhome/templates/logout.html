@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%}
+Logout
+{% endblock %}
+
+{% block content %}
+    <section class="secaoDestaque" >
+        <h1 class="secaoDestaque-titulo" id="conteudoPrincipal">
+          {{ object.tilulo }}
+        </h1>
+      </section><header class="secaoContato">
+        <div class="container">
+            
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="contatoCampo">
+                    <legend class="border-bottom mb-4">Você saiu da sua conta</legend>
+                    {{ form }}
+                </fieldset>
+                <div class="contatoCampo">
+              <button class="secaoContato-form-cta btnPadrao">Fazer Login</button>
+            </form>
+            <small>
+                Não tem uma conta ainda? <p><a href="{% url 'myhome:criarconta' %}">Clique aqui para criar uma conta</a></p>
+            </small>
+        </div>
+    </header>
+{% endblock%}

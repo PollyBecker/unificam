@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%}
+Contato
+{% endblock %}
+
+{% block content %}
+    <section class="secaoDestaque" >
+        <h1 class="secaoDestaque-titulo" id="conteudoPrincipal">
+
+        </h1>
+      </section>
+<section class="secaoContato">
+        <div class="container">
+          <h2 class="tituloPadrao">
+            Seus Dados
+          </h2>
+               <form method="post">
+                {% csrf_token %}
+                <fieldset class="contatoCampo">
+                    {{ form }}
+                </fieldset>
+                <div class="contatoCampo">
+              <button class="secaoContato-form-cta btnPadrao" type="submit">Salvar cadastro</button>
+                </div>
+          </form>
+
+              <span class="contatoCampo-msg contatoCampo-msg--erro secaoContatoForm-validacao">
+                Verifique os erros acima
+
+
+
+
+          </form>
+        </div>
+</section>
+{% endblock%}
