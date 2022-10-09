@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'Unificam.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        'ENGINE': os.environ.get('DATABASE_ENGINE'),
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'PORT': os.environ.get('DATABASE_PORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'basededados',
+        'USER': 'polly',
+        'PASSWORD':  "polly",
+        'HOST': "127.0.0.1",
+        'PORT': "5432",
     }
 
 
