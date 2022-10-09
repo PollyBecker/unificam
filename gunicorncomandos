@@ -1,0 +1,75 @@
+###############################################################################
+# Replace
+# unigooglecloud to the name of the gunicorn file you want
+# polly to your user name
+# app_repo to the folder name of your project
+# Unificam to the folder name where you find a file called wsgi.py
+#
+###############################################################################
+# Criando o arquivo unigooglecloud.socket
+sudo nano /etc/systemd/system/unigooglecloud.socket
+
+###############################################################################
+# Conteúdo do arquivo
+[Unit]
+Description=gunicorn blog socket
+
+[Socket]
+ListenStream=/run/unigooglecloud.socket
+
+[Install]
+WantedBy=sockets.target
+
+###############################################################################
+# Criando o arquivo unigooglecloud.service
+sudo nano /etc/systemd/system/unigooglecloud.service
+
+###############################################################################
+# Conteúdo do arquivo
+[Unit]
+Description=Gunicorn daemon (You can change if you want)
+Requires=unigooglecloud.socket
+After=network.target
+
+[Service]
+User=polly
+Group=www-data
+Restart=on-failure
+EnvironmentFile=/home/polly/app_repo/venv
+WorkingDirectory=/home/polly/app_repo
+# --error-logfile --enable-stdio-inheritance --log-level and --capture-output
+# are all for debugging purposes.
+ExecStart=/home/polly/app_repo/venv/bin/gunicorn \
+          --error-logfile /home/polly/app_repo/gunicorn-error-log \
+          --enable-stdio-inheritance \
+          --log-level "debug" \
+          --capture-output \
+          --access-logfile - \
+          --workers 6 \
+          --bind unix:/run/unigooglecloud.socket \
+          Unificam.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+###############################################################################
+# Ativando
+sudo systemctl start unigooglecloud.socket
+sudo systemctl enable unigooglecloud.socket
+
+# Checando
+sudo systemctl status unigooglecloud.socket
+curl --unix-socket /run/unigooglecloud.socket localhost
+sudo systemctl status unigooglecloud
+
+# Restarting
+sudo systemctl restart unigooglecloud.service
+sudo systemctl restart unigooglecloud.socket
+sudo systemctl restart unigooglecloud
+
+# After changing something
+sudo systemctl daemon-reload
+
+# Debugging
+sudo journalctl -u unigooglecloud.service
+sudo journalctl -u unigooglecloud.socket
