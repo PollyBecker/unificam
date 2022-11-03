@@ -1,5 +1,5 @@
 from django.urls import path, include, reverse_lazy
-from .views import Homepage, DetalhesBlog, CriarConta, HomeOficina, DetalhesOficina, Contato, Cadastro,Sobre,ListaBlog
+from .views import Homepage, DetalhesBlog, CriarConta, HomeOficina, DetalhesOficina, Contato, Cadastro,Sobre,ListaBlog,Doe
 from django.contrib.auth import views as auth_views
 
 app_name= 'myhome'
@@ -16,4 +16,5 @@ urlpatterns = [
     path("cadastro/", Cadastro.as_view(), name='cadastro'),
     path('oficinas/', HomeOficina.as_view(),name='homeoficinas'),
     path("oficinas/<int:pk>", DetalhesOficina.as_view(),name='detalhesoficinas'),
+    path('doe/', Doe.as_view(),name='doe'),
     ]

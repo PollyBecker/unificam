@@ -20,11 +20,15 @@ Logout
                     {{ form }}
                 </fieldset>
                 <div class="contatoCampo">
-              <button class="secaoContato-form-cta btnPadrao">Fazer Login</button>
+
             </form>
+
             <small>
                 Não tem uma conta ainda? <p><a href="{% url 'myhome:criarconta' %}">Clique aqui para criar uma conta</a></p>
             </small>
+            <a href="{% url 'myhome:login' %}">
+                <button class="secaoContato-form-cta btnPadrao">Fazer Login</button>
+            </a>
         </div>
     </header>
 {% endblock%}

@@ -88,11 +88,12 @@ a {
 
   .cabecalho-logo {
     float: left;
+    margin-top: 1.5em;
   }
 
   .cabecalho-nav {
     float: right;
-    margin-top: 1em;
+    margin-top: 2em;
   }
 
 }
@@ -373,7 +374,8 @@ a {
 
 .diferenciais-diferencial {
   margin: 0 3em 2em 3em;
-  display: inline-block;
+  display: flex;
+  justify-content:space-around;
   vertical-align: top;
   text-align: left;
   max-width: 200px;
@@ -381,15 +383,29 @@ a {
 }
 
 .diferenciais-diferencial-titulo {
-  color: #4F4C4C;
-  font-size: 1.2em;
-  margin-top: .9em;
-  margin-bottom: .6em;
-
-  background-repeat: no-repeat;
-  background-position: left center;
+   font-weight: bold;
+  margin-bottom: 1em;
+  text-align: center;
+  font-family: 'Montserrat', serif;
+  font-size: 2em;
+  line-height: 1;
   height: 2.5em;
-  padding-left: 42px;
+  padding-left: 10px;
+  padding-right: 200px;
+  padding-top: .5em;
+  transform: translateX(-42px);
+  text-transform: uppercase;
+}
+.diferenciais-diferencial-texto {
+
+  margin-bottom: 1em;
+  text-align: center;
+  font-family: 'Montserrat', serif;
+  font-size: 0.9em;
+  line-height: 1;
+  height: 2.5em;
+  padding-left: 10px;
+  padding-right: 200px;
   padding-top: .5em;
   transform: translateX(-42px);
   text-transform: uppercase;
@@ -408,6 +424,9 @@ a {
 .diferenciais-diferencial-titulo--msg {
   background-image: url(../static/msg.png);
 }
+.diferenciais-diferencial-titulo--qr {
+  image: url(../static/qrcode.jpg);
+}
 
 
 
@@ -420,14 +439,25 @@ a {
     background-color: #f7f4f4;
   }
 
-
-  .diferenciais-diferencial {
-    margin: 0 .5em;
-    font-size: .9em;
-    max-width: 450px;
+    .secaoDiferenciais2 {
+    padding-bottom: 0;
+    background-image: linear-gradient( to right,
+    #EC5E87 33%,
+    #9B59B6 33% 66%,
+    #009997 66% );
   }
 
-}
+  .diferenciais-diferencial {
+    padding-bottom: 0;
+    display:flex;
+    font-size: 1em;
+    text-align: center;
+    justify-content:space-between;
+    max-width: 100%;
+
+  }
+
+
 
 .formContato {
   width: 90%;
@@ -669,7 +699,7 @@ a {
 .secaoCitacao {
   text-align: center;
   background-size: cover;
-  background-color: #4F5873;
+  background-color: #BF4E6D;
   padding: 5em 2em 3em 2em;
   color: #fff;
 }
@@ -683,6 +713,7 @@ a {
 .secaoDestaque {
   text-align: center;
   background-size: cover;
+  background-repeat: no-repeat;
   background-color: #00161c;
   padding: 10em 2em 3em 2em;
   color: #fff;
@@ -702,6 +733,7 @@ a {
   margin: 0 auto 2em auto;
   font-size: 1.25em;
   font-weight: normal;
+
 
 }
 
@@ -959,6 +991,11 @@ li[aria-hidden='false'] { display:block ; }
   max-width: 1000px;
 }
 
+.container2 {
+  padding: 3.5em 5%;
+  margin: 0;
+  max-width: 1000px;
+}
 .tituloPadrao {
   font-family: 'Montserrat', serif;
   margin-bottom: 1em;
@@ -970,7 +1007,7 @@ li[aria-hidden='false'] { display:block ; }
 .btnPadrao {
   border-radius: 5px;
   border: 0;
-  background-color: #BF4E6D;
+  background-color: #400308;
   color: #fff;
   font-size: 1.2em;
   padding: .3em 1em;
@@ -1008,6 +1045,8 @@ li[aria-hidden='false'] { display:block ; }
     width:50%;
     height: auto;
 }
+a { text-decoration: none; }
+
 </style>
 <body>
 {% include 'navbar.html' %}
@@ -1017,19 +1056,19 @@ li[aria-hidden='false'] { display:block ; }
 <footer class="rodape">
     <div class="container">
       <ul class="rodape-social" style="color:white">
-          <p>
-              Unificam nas redes
-            </p>
+          Para mais informações sobre projetos,
+          <br>
+            parcerias, patrocínios, eventos e outros assuntos,
+          </br>
+          entre em contato conosco.
+          <br>
+          <br>
         <li>
-          <a href="#" class="rodape-social-link rodape-social-link--facebook">
-            Facebook da Apeperia
+          <a href="https://www.facebook.com/profile.php?id=100064753326126" class="rodape-social-link rodape-social-link--facebook">
+            Facebook da Unificam
           </a>
         </li>
-        <li>
-          <a href="#" class="rodape-social-link rodape-social-link--twitter">
-            Twitter da Apeperia
-          </a>
-        </li>
+
         <li>
           <a href="#" class="rodape-social-link rodape-social-link--instagram">
             Instagram da Apeperia
@@ -1040,25 +1079,30 @@ li[aria-hidden='false'] { display:block ; }
       <nav class="rodape-nav">
         <div class="rodape-nav" style="color:white">
             <address>
-              Rua Vergueiro, 3185 <br> Vila Mariana, São Paulo
+              Rua Jose Luiz Sampaio Ferraz, Nº 2711, Vila Vilarinho.<br>
+Amambai MS<br> Cep 79990000
             </address>
             <p>
-              (11) 5571-2751 ou <a href="#"> contato@apeperia.com</a>
+              (67) 8118-1938 ou <a href="#"> contato@unificam.com</a>
             </p>
           </div>
         <ul>
-          <li class="rodape-nav-item"><a href="#" class="rodape-nav-link">Sobre</a></li>
-          <li class="rodape-nav-item"><a href="#" class="rodape-nav-link">Planos</a></li>
-          <li class="rodape-nav-item"><a href="#" class="rodape-nav-link">Blog</a></li>
-          <li class="rodape-nav-item"><a href="#" class="rodape-nav-link">Destaques</a></li>
-          <li class="rodape-nav-item"><a href="#" class="rodape-nav-link">Institucional</a></li>
-          <li class="rodape-nav-item"><a href="#" class="rodape-nav-link">Contato</a></li>
+          <li class="rodape-nav-item"><a href="{% url 'myhome:sobre' %}" class="rodape-nav-link">Sobre</a></li>
+          <li class="rodape-nav-item"><a href="{% url 'myhome:contato' %}" class="rodape-nav-link">Contato</a></li>
+          <li class="rodape-nav-item"><a href="{% url 'myhome:listablog' %}" class="rodape-nav-link">Blog</a></li>
+          <li class="rodape-nav-item"><a href="{% url 'myhome:doe' %}" class="rodape-nav-link">Doe</a></li>{% if user.is_authenticated %}
+            <li class="rodape-nav-item"><a href="{% url 'myhome:logout' %}" class="rodape-nav-link">Sair</a></li>
+            <li class="rodape-nav-item"><a href="{% url 'myhome:cadastro' %}" class="rodape-nav-link">Meu cadastro</a></li>
+          {% else %}
+            <li class="rodape-nav-item"><a href="{% url 'myhome:login' %}" class="rodape-nav-link">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
     </div>
 
   </footer>
 <script>(function(){var s = document.createElement("script");s.setAttribute("data-account","9PigF8bwTW");s.setAttribute("src","https://cdn.userway.org/widget.js");document.body.appendChild(s);})();</script><noscript>Enable JavaScript to ensure <a href="https://userway.org">website accessibility</a></noscript>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 
 </html>

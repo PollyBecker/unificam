@@ -6,15 +6,40 @@ Unificam
 {% endblock %}
 {% block content %}
 
-   <main class="conteudo" role="main">
+    <main class="conteudo" role="main">
       <section class="secaoDestaque" >
         <h1 class="secaoDestaque-titulo" id="conteudoPrincipal">
-
+          {{ object.tilulo }}
         </h1>
       </section>
+     <div class="container">
+          <img src="{{ object.thumb.url }}" class="secaoSobre-imgDestaque" alt>
+          <h2 class="secaoSobre-titulo tituloPadrao">
+            Blog
+          </h2>
+          <p class="secaoSobre-texto">
+            A UNIFICAM (União dos Deficientes Físicos de Amambai) tem participação ativa na nossa comunidade e por aqui você consegue nos acompanhar e ver nossos ultimos projetos e ações. O papel de cada um desses projetos é valioso para nossos associados e por aqui você confere e tem a oportunidade de participar das nossas atividades, conhecer as famílias e integrantes da Unificam!
+          </p>
+     </div>
+         <section class="secaoCitacaoBlog" >
+
+        <h4 class="secaoCitacao-titulo" id="citacao">
+            "A caridade é o único tesouro que se aumenta
+            ao dividi-lo."
+        </h4>
+      </section>
+      <div class="container">
+
+          <p class="secaoSobre-texto">
+            <b>
+              Vamos ver as últimas postagens do nosso blog com nossas novidades;
+            </b>
+          </p>
+        </div>
+      </section> <!--fim .secaoSobre-->
       <section class="secaoDestaques">
         <div class="container">
-          <h2 class="secaoDestaques-titulo tituloPadrao">VEJA NOSSOS DESTAQUES</h2>
+          <h2 class="secaoDestaques-titulo tituloPadrao">NOSSOS DESTAQUES</h2>
           {% for recente in lista_blog_recentes %}
           <a href="{% url 'myhome:detalhesblog' recente.pk %}" class="secaoDestaques-link" aria-labelledby="tituloDestaque1">
             <figure class="secaoDestaques-destaque">
@@ -28,28 +53,6 @@ Unificam
 
         </div>
 
-        <div class="dialogNewsletter" id="dialogNewsletter">
-          <div class="dialogNewsletter-body">
-
-            <h2 class="dialogNewsletter-titulo">News sem spam</h2>
-            <h3 class="dialogNewsletter-texto">
-              Assine nossa newsletter para receber notícias técnicas sem spam!
-            </h3>
-            <form class="dialogNewsletter-form">
-              <label class="dialogNewsletter-label">
-                Email:
-              </label>
-              <input type="text" class="dialogNewsletter-campo" placeholder="Digite seu e-mail...">
-              <button class="dialogNewsletter-btn">
-                Assinar newsletter
-              </button>
-              <button class="dialogNewsletter-fechar">
-                X
-              </button>
-            </form>
-          </div>
-          <div class="dialogNewsletter-overlay"></div>
-        </div> <!--fim .dialogNewsletter-->
 
 </script>
     {% endblock %}

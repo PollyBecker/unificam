@@ -1,16 +1,19 @@
 
 from .models import Blog, OficinaVideo
 
-def lista_videos_recentes(request):
-    lista_videos =OficinaVideo.objects.all().order_by('-lancamento')[0:8]
-    print(lista_videos,"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    if lista_videos:
-        video_destaque = lista_videos[0]
-    else:
-        video_destaque=None
-    print(video_destaque,"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    return {'lista_videos_recentes':lista_videos, 'video_destaque': video_destaque}
 
+def lista_filmes_recentes(request):
+    lista_filmes = OficinaVideo.objects.all().order_by('-lancamento')[0:8]
+    if lista_filmes:
+        filme_destaque = lista_filmes[0]
+    else:
+        filme_destaque = None
+    return {'lista_filmes_recentes': lista_filmes, 'filme_destaque': filme_destaque}
+
+
+def lista_filmes_alta(request):
+    lista_filmes = OficinaVideo.objects.all().order_by('-visualizados')[0:8]
+    return {'lista_filmes_alta': lista_filmes}
 
 def lista_blog_recentes(request):
     lista_blog =Blog.objects.all().order_by('-data')[0:6]

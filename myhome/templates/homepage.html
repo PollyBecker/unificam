@@ -9,7 +9,7 @@ Unificam
    <main class="conteudo" role="main">
       <section class="secaoDestaque" style="background-image:{%static 'bg-intro.png' %}">
         <h1 class="secaoDestaque-titulo" id="conteudoPrincipal">
-          Unificam
+
         </h1>
         <h2 class="secaoDestaque-texto">
           Nosso programa consiste em possibilitar esforços comunitários organizados em torno de um desenvolvimento social, que garanta a cada indivíduo um padrão de vida adequado para a manutenção da saúde.</h2>
@@ -19,50 +19,53 @@ Unificam
         </button>
       </section>
 
-      <section class="secaoDiferenciais">
-        <div class="container">
-          <ul class="diferenciais">
-            <li class="diferenciais-diferencial">
-              <img src="{% static 'msg.png' %}" >
-              <p class="diferenciais-diferencial-texto">
-                Entre em contato.
-              </p>
-            </li>
-            <li class="diferenciais-diferencial ">
-              <img src="{% static 'coin.png' %}" >
-              <p class="diferenciais-diferencial-texto">
-                Doe e faça a diferença.
-              </p>
-            </li>
-            <li class="diferenciais-diferencial">
-              <img src="{% static 'heart.png' %}" >
-              <p class="diferenciais-diferencial-texto">
-                Missão, visão e valores.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section> <!--fim .secaoDiferenciais-->
 
-      <section class="secaoSobre clearfix">
+      <section class="secaoSobre clearfix" style="background-color:#f7f4f4">
         <div class="container">
           <img src="{% static 'saude.jpeg' %}" class="secaoSobre-imgDestaque" alt>
           <h2 class="secaoSobre-titulo tituloPadrao">
             SOBRE
           </h2>
           <p class="secaoSobre-texto">
-            Lorem Ipsum is simply dummy text of the printing and typesetting!
+             Nossa entidade é presidida por Daniel Riquelme que está  desde a sua fundação, sempre a frente com seus trabalhos para trazer melhorias, com  sua administração foram conquistadas ampliações, materiais, reformas, equipamentos de grande necessidade para o dia a dia e atualmente temos  80 usuários cadastrados, graças a sua dedicação a entidade continua seus atendimentos sem ônus para os usuários. Não poderíamos também  deixar de agradecer  a Cida Farias que faz toda a documentação da UNIFICAM, realizando um trabalho voluntário.
           </p>
           <p class="secaoSobre-texto">
-            industry. Lorem Ipsum has been the industry's standard dummy of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          </p>
+            O trabalho voluntário tem sido muito importante para as organizações não governamentais, que graças a esse tipo de iniciativa nossa entidade só cresceu e com isso somos beneficiados.</p>
           <p class="secaoSobre-texto">
             <b>
-              text ever since the 1500s, when an unknown printer took a galley.
+              Conheça mais sobre nosso projeto e faça parte dessa história.
             </b>
           </p>
         </div>
       </section> <!--fim .secaoSobre-->
+
+     <section class="secaoDiferenciais2">
+        <div class="container2">
+          <ul class="diferenciais-diferencial ">
+            <a href="{% url 'myhome:contato' %}"><li >
+              <p class="diferenciais-diferencial-titulo" style="color:#f7f4f4"> Fale conosco</p>
+              <p class="diferenciais-diferencial-texto" style="color:#f7f4f4">
+                Entre em contato.
+              </p>
+            </li></a>
+            <a href="{% url 'myhome:doe' %}"><li >
+              <p class="diferenciais-diferencial-titulo" style="color:#f7f4f4"> Apoie também</p>
+
+              <p class="diferenciais-diferencial-texto" style="color:#f7f4f4">
+                Doe e faça a diferença.
+              </p>
+            </li></a>
+            <a href="{% url 'myhome:sobre' %}"><li >
+              <p class="diferenciais-diferencial-titulo" style="color:#f7f4f4"> Quem Somos</p>
+
+              <p class="diferenciais-diferencial-texto" style="color:#f7f4f4">
+                Missão, visão e valores.
+              </p>
+            </li></a>
+          </ul>
+        </div>
+      </section> <!--fim .secaoDiferenciais-->
+
 
       <section class="secaoBlog container">
         <h2 class="secaoBlog-titulo tituloPadrao">
@@ -111,27 +114,26 @@ Unificam
       </section> <!--fim .secaoBlog-->
       <section class="secaoCitacao" >
         <h4 class="secaoCitacao-titulo" id="citacao">
-            "A caridade é o único tesouro que se aumenta
-            ao dividi-lo."
+            ” Voluntários não têm necessariamente o tempo, eles têm o coração"...
         </h4>
       </section>
      <section class="secaoInstitucional">
         <div class="container">
           <h2 class="tituloPadrao">
-            INSTITUCIONAL
+            OFICINAS
           </h2>
 
           <div class="secaoInstitucional-coluna">
             <p>
-              Oi, tudo bem? Faça seu cadastro e acesse nossas
-              oficinas, informativos e mais!
+              Oi, tudo bem? Nossas Oficinas presenciais, Palestras e Projetos também esão aqui!
             </p>
             <address class="secaoInstitucional-endereco">
-              faça seu cadastro e conheça seus direitos
+              Faça seu cadastro e acesse nossos vídeos e mais!
             </address>
+            <a href="{% url 'myhome:homeoficinas' %}">
             <button class="secaoDestaque-cta btnPadrao">
-          Cadastro
-        </button>
+          Acessar oficinas
+            </button></a>
           </div>
 
           <video src="{% static 'uni-video.mp4' %}" class="secaoInstitucional-video" controls>
@@ -185,4 +187,19 @@ document.querySelector('.dialogNewsletter-fechar').addEventListener('click', fec
 	};
 </script>
 <script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>
+<script>
+  const saida = document.querySelector(".secaoDestaque-titulo");
+
+function digitacao(texto, contador) {
+  if (contador < texto.length) {
+    setTimeout(() => {
+      saida.textContent += texto.charAt(contador);
+      contador++;
+      digitacao(texto, contador);
+    }, 100);
+  }
+}
+
+digitacao("Unificam", 0);
+</script>
     {% endblock %}

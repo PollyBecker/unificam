@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%}
+Unificam
+{% endblock %}
+{% block content %}
+
+   <main class="conteudo" role="main">
+      <section class="secaoDestaque" >
+        <h1 class="secaoDestaque-titulo" id="conteudoPrincipal">
+          Seja um apoiador Unificam
+        </h1>
+      </section>
+     <div class="container">
+          <img src="{{ object.thumb.url }}" class="secaoSobre-imgDestaque" alt>
+          <h2 class="secaoSobre-titulo tituloPadrao">
+            Faça parte dessa mobilização!
+          </h2>
+          <p class="secaoSobre-texto">
+            Com o seu apoio é possível continuar com a nossa missão <br>
+              de contribuir com o desenvolvimento de todos que participam de nossos programas.
+          </br>
+          </p>
+
+          <p class="secaoSobre-texto">
+            <b>
+              Faça parte dessa linda histótia.
+            </b>
+          </p>
+        </div>
+      </section> <!--fim .secaoSobre-->
+
+      <section class="secaoDestaques">
+
+      <section class="secaoDiferenciais2">
+        <div class="container2">
+          <ul class="diferenciais-diferencial">
+            <li>
+              <p class="diferenciais-diferencial-titulo" style="color:#f7f4f4"> Depósito Bancário
+              </p>
+                <p class="diferenciais-diferencial-texto" style="color:#f7f4f4"><br></br>
+                Banco: Bradesco | Agência: xxxx | Conta: xxxx-x
+                    </p>
+                <p class="diferenciais-diferencial-texto" style="color:#f7f4f4"><br></br>
+                CNPJ: ‭ 01.997.386/0001-10‬
+              </p>
+            </li>
+            <li>
+              <p class="diferenciais-diferencial-titulo" style="color:#f7f4f4">Nosso Pix
+                  <br></br>
+                   <img src="{% static 'qrcode.jpg' %}" style="max-width:50% ">
+              </p>
+                <br></br>
+                <br></br>
+                <p class="diferenciais-diferencial-texto" style="color:#f7f4f4">
+                CHAVE PIX: doapara@unificam.org.br
+              </p>
+            </li>
+            <li><a href="{% url 'myhome:contato' %}" >
+              <p class="diferenciais-diferencial-titulo" style="color:#f7f4f4">Fale Conosco
+              </p>
+                <p class="diferenciais-diferencial-texto" style="color:#f7f4f4">
+                Entre em contato e fale conosco para
+                    </p>
+                <p class="diferenciais-diferencial-texto" style="color:#f7f4f4">
+                ajudar de outra forma
+              </p>
+            </li></a>
+          </ul>
+        </div>
+      </section> <!--fim .secaoDiferenciais-->
+
+        <div class="dialogNewsletter" id="dialogNewsletter">
+          <div class="dialogNewsletter-body">
+
+            <h2 class="dialogNewsletter-titulo">News sem spam</h2>
+            <h3 class="dialogNewsletter-texto">
+              Assine nossa newsletter para receber notícias técnicas sem spam!
+            </h3>
+            <form class="dialogNewsletter-form">
+              <label class="dialogNewsletter-label">
+                Email:
+              </label>
+              <input type="text" class="dialogNewsletter-campo" placeholder="Digite seu e-mail...">
+              <button class="dialogNewsletter-btn">
+                Assinar newsletter
+              </button>
+              <button class="dialogNewsletter-fechar">
+                X
+              </button>
+            </form>
+          </div>
+          <div class="dialogNewsletter-overlay"></div>
+        </div> <!--fim .dialogNewsletter-->
+
+</script>
+    {% endblock %}

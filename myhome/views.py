@@ -65,20 +65,16 @@ class HomeOficina(ListView):
     template_name = 'oficinas.html'
     model = OficinaVideo
 
+    def get(self, request, *args, **kwargs):
+        # contabilizando as views
+
+        return super().get(request, *args, **kwargs)
+
     #list_view me retorna uma lista com nome object_list
-    def get_context_data(self, **kwargs):
-        print('entrou<3')
-        context = super(OficinaVideo, self).get_context_data(**kwargs)
-        lista_videos = OficinaVideo.objects.all()
-        context["lista_filmes_relacionados"] = lista_videos
-        if lista_videos:
-            video_destaque = lista_videos[0]
-        context["video_destaque"] = video_destaque
-        for v, videos in enumerate(lista_videos):
-            print(v,videos,'!!!!!!!!!!!!!!')
-        return context
+
+
 class DetalhesOficina(LoginRequiredMixin, DetailView):
-    template_name = 'detalhesoficina.html'
+    template_name = 'detalhesoficinas.html'
     model = OficinaVideo
 
     # detailview me retorna a variavel object
@@ -92,14 +88,6 @@ class DetalhesOficina(LoginRequiredMixin, DetailView):
         usuario.videos_vistos.add(video)
         return super().get(request, *args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super(OficinaVideo, self).get_context_data(**kwargs)
-        lista_videos = OficinaVideo.objects.all()
-        context["lista_filmes_relacionados"] = lista_filmes
-        if lista_videos:
-            video_destaque = lista_videos[0]
-        context["video_destaque"] = video_destaque
-        return context
 
 class HomeOficina( LoginRequiredMixin, ListView):
     template_name = 'oficinas.html'
@@ -108,5 +96,11 @@ class HomeOficina( LoginRequiredMixin, ListView):
 
 class Sobre(ListView):
     template_name = 'sobre.html'
+    model = Usuario
+    #list_view me retorna uma lista com nome object_list
+
+
+class Doe(ListView):
+    template_name = 'doe.html'
     model = Usuario
     #list_view me retorna uma lista com nome object_list

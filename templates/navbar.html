@@ -20,6 +20,7 @@
         <li class="cabecalho-nav-item"><a href="{% url 'myhome:sobre' %}">Sobre</a></li>
         <li class="cabecalho-nav-item"><a href="{% url 'myhome:contato' %}">Contato</a></li>
         <li class="cabecalho-nav-item"><a href="{% url 'myhome:listablog' %}">Blog</a></li>
+          <li class="cabecalho-nav-item"><a href="{% url 'myhome:doe' %}">Doe</a></li>
           {% if user.is_authenticated %}
             <li class="cabecalho-nav-item"><a href="{% url 'myhome:logout' %}">Sair</a></li>
             <li class="cabecalho-nav-item"><a href="{% url 'myhome:cadastro' %}">Meu cadastro</a></li>
