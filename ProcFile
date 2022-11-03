@@ -1,1 +1,1 @@
-web: gunicorn Unificam.wsgi --log-file -
+web: gunicorn Unificam2.wsgi --log-file -
